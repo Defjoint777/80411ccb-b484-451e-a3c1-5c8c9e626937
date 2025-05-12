@@ -19,7 +19,7 @@
 In Unix-like systems, the `source` command (or its shorthand `.`) is a powerful tool that allows you to execute commands from a file within the current shell environment. This means that any functions, variables, or configurations defined in the sourced file become immediately available in your current session.
 
 A session refers to a running instance of the shell—your current command-line interface environment. Within this session, you can define identifiers such as functions and variables, and assign them values. However, these identifiers and their values are held only in memory, meaning they are temporary. When you close the session, everything stored in memory is lost. This impermanence is critical: shell sessions do not automatically preserve your work across restarts.
-
+fi
 Historically, due to the lack of convenient text editors or graphical interfaces, users had to rely on direct command-line input to define functions or setup configurations. To avoid repeating these definitions in every session, users would "store" their work—function definitions, variable exports, configuration setups—in text files. These files could then be sourced to "load" the necessary components into memory whenever needed.
 
 Thus, there is a crucial distinction between **memory**, where function and value identifiers are remembered only during a session, and **storage**, which refers to the persistent archiving of these definitions in files for reuse across sessions.
@@ -156,11 +156,22 @@ Let’s demonstrate the risks and differences of using `>` versus `>>`.
 ## Questions
 
 1. What is the primary purpose of the `source` command in Bash?
-2. How do the `>` and `>>` operators differ in behavior and use?
-3. What are the consequences of using `>` on an existing file?
-4. Why is using `export` important in sourced shell functions?
-5. How can you prepare a file of shell functions for repeated use in future sessions?
-6. What is the difference between memory and storage in the context of shell scripting?
+   source allows us to start script in current season of bash.
+   
+3. How do the `>` and `>>` operators differ in behavior and use?
+   > overvriting content of file, >> concatinating content to end of file.
+   > 
+5. What are the consequences of using `>` on an existing file?
+   the file gonna be overwriten.
+   
+7. Why is using `export` important in sourced shell functions?
+   export allows as using of variables(and script) in other bash seasons.
+   
+9. How can you prepare a file of shell functions for repeated use in future sessions?
+    for using the file of shell in the future, we must make sure that all components are availible in next bash season.
+   
+11. What is the difference between memory and storage in the context of shell scripting?
+    in memory we are just saving z.B variables for current season of bash, if we would save variables in shell file, the file would land in storage.
 
 ---
 
